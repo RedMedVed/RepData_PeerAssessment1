@@ -72,7 +72,7 @@ plot1 <- ggplot(dailyTotal, aes(x = total.steps)) +
 print(plot1)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png)
 
 Mean steps per day
 
@@ -106,7 +106,7 @@ plot2 <- ggplot(intervalMean, aes(x = interval, y = mean.steps)) +
 print(plot2)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png)
 
 Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -139,7 +139,7 @@ plot3 <- ggplot(dailyTotalFilled, aes(x = total.steps)) +
 print(plot3)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-14-1.png)<!-- -->
+![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png)
 
 Median steps per day (with NA's replaced)
 
@@ -174,7 +174,7 @@ plot4 <- ggplot(dailyMean, aes(x = interval, y = mean.steps)) +
 print(plot4)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-17-1.png)<!-- -->
+![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17-1.png)
 
 So, what's the difference itself? In order to prevent calculating each point, let's add some graphics. First, prepare data for this.
 
@@ -197,6 +197,6 @@ plot5 <- ggplot(dailyMean2, aes(x = interval, y = difference)) +
 print(plot5)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-19-1.png)<!-- -->
+![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19-1.png)
 
 As we can see, on weekends there are less steps approximately from 05:00 to 10:00, and more steps approximately from 10:00 to 21:00. The dinner and supper times do not depends on day, they are close to 13:00-14:00 and 19:00.
