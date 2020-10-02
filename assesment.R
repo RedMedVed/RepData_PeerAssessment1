@@ -70,3 +70,17 @@ plot4 <- ggplot(dailyMean, aes(x = interval, y = mean.steps)) +
   ggtitle('Average daily activity pattern by day') +
   theme(plot.title = element_text(hjust = 0.5))
 print(plot4)
+
+#Calculate and plot the difference itself
+dailyMean2 <- data.frame(unique(dailyMean$interval), 
+                         dailyMean$mean.steps[which(dailyMean$day == 'weekend')] -
+                           dailyMean$mean.steps[which(dailyMean$day == 'weekday')])
+names(dailyMean2) <- c('interval', 'difference')
+
+plot5 <- ggplot(dailyMean2, aes(x = interval, y = difference)) +
+  geom_line() +
+  xlab('Interval') +
+  ylab('Difference between weekend and weekday') +
+  ggtitle('Difference between patterns') +
+  theme(plot.title = element_text(hjust = 0.5))
+print(plot5)
