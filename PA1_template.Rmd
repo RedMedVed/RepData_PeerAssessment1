@@ -7,9 +7,25 @@ output:
 
 
 ## Loading and preprocessing the data
-
-
-
+'''{r}
+library(ggplot2)
+library(dplyr)
+dataFile <- 'activity.zip'
+unzip(dataFile, overwrite = FALSE)
+#just because we know the file extension, we can use grep
+#full data
+activities <- read.csv(list.files()[grep('.csv', list.files())]) %>%
+  mutate(day = ifelse(strftime(date, '%w') %in% c(0, 6), 'weekend', 'weekday'))
+#data without NA's
+completeActivities <- activities[complete.cases(activities$steps), ]
+#total number of steps taken per day
+dailyTotal <- aggregate(activities$steps, by = list(activities$date), FUN = sum)
+names(dailyTotal) <- c('date', 'total.steps')
+#average number of steps by period divided into weekday and weekend
+dailyMean <- aggregate(completeActivities$steps, by = list(completeActivities$interval,
+                                                         completeActivities$day), FUN = mean)
+names(dailyMean) <- c('interval', 'day', 'mean.steps')
+'''
 ## What is mean total number of steps taken per day?
 
 
